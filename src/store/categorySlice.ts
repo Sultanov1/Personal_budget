@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {Category} from '../types';
-import {createCategory, fetchCategory} from './categoryThunk';
+import {createCategory, deleteCategory, fetchCategory, updateCategory} from './categoryThunk';
 
 export interface CategoryState {
   categories: Category[];
@@ -42,7 +42,31 @@ export const categorySlice = createSlice({
       .addCase(fetchCategory.rejected, (state) => {
         state.isLoading = false;
         state.error = true;
-      });
+      })
+
+    builder
+      .addCase(updateCategory.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateCategory.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(updateCategory.rejected, (state) => {
+        state.isLoading = false;
+        state.error = true;
+      })
+
+    builder
+      .addCase(deleteCategory.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteCategory.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(deleteCategory.rejected,  (state) => {
+        state.isLoading = false;
+        state.error = true;
+      })
   },
 });
 

@@ -14,6 +14,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<MainPage/>}/>
           <Route path="/categories" element={<CategoriesPage/>}/>
+          <Route path='/categories/form/:id' element={<CategoriesForm/>}/>
           <Route path='/categories/form' element={<CategoriesForm/>}></Route>
         </Routes>
       </main>

@@ -23,3 +23,15 @@ export const fetchCategory = createAsyncThunk<Category[], void, { state: RootSta
       }));
     }
 );
+
+export const updateCategory = createAsyncThunk<Category, { id: string, categoryData: ApiCategory }, { state: RootState }>(
+    'categories/update', async ({ id, categoryData }) => {
+        await axiosApi.put(`/categories/${id}.json`, categoryData);
+        return { ...categoryData, id };
+    }
+);
+
+export const deleteCategory = createAsyncThunk<void, string, {state: RootState}>('categories/delete', async (id: string) => {
+    const {data: category} = await axiosApi.delete(`/categories/${id}.json`);
+    return category;
+})
