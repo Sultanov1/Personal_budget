@@ -13,7 +13,7 @@ const Navbar = () => {
             <Link className='nav-link active' to="/categories">Categories</Link>
           </li>
           <li className="nav-item">
-            <Link className='nav-link active' to="/add-transaction">Add Transaction</Link>
+            <Link className='nav-link active' to="/transaction-form">Add Transaction</Link>
           </li>
         </ul>
       </div>
