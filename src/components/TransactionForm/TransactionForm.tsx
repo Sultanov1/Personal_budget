@@ -1,6 +1,12 @@
+import React from 'react';
+
 const TransactionForm = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="mb-3">
         <label htmlFor="type" className="form-label">Type</label>
         <select

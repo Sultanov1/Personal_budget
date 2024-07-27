@@ -1,9 +1,9 @@
 import Navbar from './components/Navbar/Navbar';
 import {Route, Routes} from 'react-router-dom';
 import CategoriesPage from './containers/CategoriesPage/CategoriesPage';
-import TransactionPage from './containers/TransactionPage/TransactionPage';
 import CategoriesForm from './components/CategoriesForm/CategoriesForm';
 import TransactionForm from './components/TransactionForm/TransactionForm';
+import TransactionPage from './containers/TransactionPage/TransactionPage';
 
 const App = () => {
   return (

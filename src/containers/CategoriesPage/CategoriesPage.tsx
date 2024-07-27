@@ -17,7 +17,7 @@ const CategoriesPage = () => {
 
   const handleEdit = (id: string) => {
     navigate(`/categories/form/${id}`);
-  }
+  };
 
   const handleDelete = async (id: string) => {
     if (window.confirm('Are you sure you want to delete this category?')) {
@@ -31,8 +31,8 @@ const CategoriesPage = () => {
   };
 
   const colorExpand = (type: string) => {
-      return type === 'income' ? 'text-income' : 'text-expense';
-  }
+    return type === 'income' ? 'text-income' : 'text-expense';
+  };
 
 
   return (
@@ -58,7 +58,7 @@ const CategoriesPage = () => {
           </div>
         ))
       ) : (
-        <h5 className='text-danger mt-2'>Category is not available!</h5>
+        <h5 className="text-danger mt-2">Category is not available!</h5>
       )}
     </div>
   );

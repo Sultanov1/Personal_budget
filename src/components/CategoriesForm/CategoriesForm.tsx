@@ -7,9 +7,9 @@ import ButtonSpinner from '../Spinner/ButtonSpinner';
 
 const CategoriesForm = () => {
   const dispatch = useAppDispatch();
-  const { id } = useParams<{ id: string }>();
+  const {id} = useParams<{ id: string }>();
   const isLoading = useAppSelector(state => state.category.isLoading);
-  const categoryData = useAppSelector(state => state.category.categories)
+  const categoryData = useAppSelector(state => state.category.categories);
   const navigate = useNavigate();
   const [categories, setCategories] = useState<ApiCategory>({
     category: '',
@@ -42,7 +42,7 @@ const CategoriesForm = () => {
 
     try {
       if (id) {
-        await dispatch(updateCategory({ id, categoryData: categories })).unwrap();
+        await dispatch(updateCategory({id, categoryData: categories})).unwrap();
       } else {
         await dispatch(createCategory(categories)).unwrap();
       }
@@ -55,6 +55,7 @@ const CategoriesForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="mb-3">
+        <h3>{id ? 'Edit Category' : 'Add Category'}</h3>
         <label htmlFor="type" className="form-label">Type</label>
         <select
           className="form-select"
@@ -64,8 +65,8 @@ const CategoriesForm = () => {
           required
         >
           <option value="">Select one type</option>
-          <option  value="income">Income</option>
-          <option  value="expense">Expense</option>
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
         </select>
       </div>
       <div className="mb-3">
